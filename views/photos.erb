@@ -17,6 +17,7 @@
 <main>
     <section>
         <% @photos.each do |photo| %>
+            <p><%= photo.timestamp %></p>
             <img src="<%= photo.image_url %>" alt="">
         <% end %>
     </section>

@@ -95,7 +95,7 @@ photo.save
 # owned by someone else and associated to one of their events
 photo = Photo.new
 photo.image_url = "https://i.imgur.com/GqRzs0E.jpg"
-photo.timestamp = "2019-08-01"
+photo.timestamp = "2019-07-29"
 photo.user_id = 2
 photo.event_id = 58
 photo.save
@@ -103,6 +103,6 @@ photo.save
 # owned by someone else and not associated to an event
 photo = Photo.new
 photo.image_url = "https://i.imgur.com/olfB1pU.jpg"
-photo.timestamp = "2019-08-01"
+photo.timestamp = "2019-06-18"
 photo.user_id = 2
 photo.save

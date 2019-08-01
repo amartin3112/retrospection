@@ -12,11 +12,11 @@ get '/' do
 end
 
 get '/events' do
-  @events = Event.all
+  @events = Event.all.order(:start_at).reverse
   erb :events
 end
 
 get '/photos' do
-  @photos = Photo.all
+  @photos = Photo.all.order(:timestamp).reverse
   erb :photos
 end

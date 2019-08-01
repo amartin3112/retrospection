@@ -17,6 +17,11 @@
 <main>
     <section>
         <% @events.each do |event| %>
+            <% if event.start_at == event.end_at %>
+                <p><%= event.start_at %></p>
+            <% else %>
+                <p><%= event.start_at %> - <%= event.end_at %></p>
+            <% end %>
             <h2><%= event.title %></h2>
             <p><%= event.details %></p>
         <% end %>
