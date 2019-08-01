@@ -19,3 +19,13 @@ CREATE TABLE events (
     created_at TIMESTAMPTZ,
     updated_at TIMESTAMPTZ
 );
+
+CREATE TABLE photos (
+    id SERIAL PRIMARY KEY,
+    image_url TEXT,
+    timestamp TIMESTAMPTZ,
+    created_at TIMESTAMPTZ,
+    updated_at TIMESTAMPTZ,
+    user_id INTEGER,
+    event_id INTEGER
+);

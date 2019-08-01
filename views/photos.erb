@@ -3,22 +3,21 @@
         <a href="">Options</a>
         <a href="">Calendar</a>
     </nav>
-    <h1>Events</h1>
+    <h1>Photos</h1>
     <section>
-        <a href="">Add event</a>
+        <a href="">Add photo</a>
     </section>
     <section>
         <form action="">
-            <input type="text" placeholder="Search events">
+            <input type="text" placeholder="Search photos">
             <button>Go!</button>
         </form>
     </section>
 </header>
 <main>
     <section>
-        <% @events.each do |event| %>
-            <h2><%= event.title %></h2>
-            <p><%= event.details %></p>
+        <% @photos.each do |photo| %>
+            <img src="<%= photo.image_url %>" alt="">
         <% end %>
     </section>
 </main>

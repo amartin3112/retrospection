@@ -56,3 +56,53 @@ event.details = "Lorem ipsum dolor amet tumblr pitchfork listicle chambray helve
 event.start_at = "2019-09-12"
 event.end_at = "2019-09-12"
 event.save
+
+# creted new event that will be owned by someone else
+
+event = Event.new
+event.title = "6 - someone elses event"
+event.details = "Fashion axe blue bottle forage kickstarter cronut microdosing hot chicken iPhone helvetica."
+event.start_at = "2019-07-29"
+event.end_at = "2019-07-29"
+event.save
+
+
+# create some photos for testing
+
+# owned by me and associated to "3 - same day 1/2"
+photo = Photo.new
+photo.image_url = "https://i.imgur.com/vE64RCu.jpg"
+photo.timestamp = "2019-08-01"
+photo.user_id = 1
+photo.event_id = 55
+photo.save
+
+# another photo on "3 - same day 1/2"
+photo = Photo.new
+photo.image_url = "https://i.imgur.com/NgAlhok.jpg"
+photo.timestamp = "2019-08-01"
+photo.user_id = 1
+photo.event_id = 55
+photo.save
+
+# not associated with an event
+photo = Photo.new
+photo.image_url = "https://i.imgur.com/0er5tYV.jpg"
+photo.timestamp = "2019-07-10"
+photo.user_id = 1
+photo.save
+
+# owned by someone else and associated to one of their events
+photo = Photo.new
+photo.image_url = "https://i.imgur.com/GqRzs0E.jpg"
+photo.timestamp = "2019-08-01"
+photo.user_id = 2
+photo.event_id = 58
+photo.save
+
+# owned by someone else and not associated to an event
+photo = Photo.new
+photo.image_url = "https://i.imgur.com/olfB1pU.jpg"
+photo.timestamp = "2019-08-01"
+photo.user_id = 2
+photo.save
