@@ -1,0 +1,28 @@
+<header>
+    <nav>
+        <a href="">Options</a>
+        <a href="">Calendar</a>
+    </nav>
+    <h1>Retrospective</h1>
+    <section>
+        <a href="">Add event</a>
+    </section>
+    <section>
+        <form action="">
+            <input type="text" placeholder="Search events">
+            <button>Go!</button>
+        </form>
+    </section>
+</header>
+<main>
+    <section>
+        <% @events.each do |event| %>
+            <h2><%= event.title %></h2>
+            <p><%= event.details %></p>
+        <% end %>
+    </section>
+</main>
+<footer>
+    <a href="">Events</a>
+    <a href="">Photos</a>
+</footer>
