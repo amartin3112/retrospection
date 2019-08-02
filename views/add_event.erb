@@ -1,0 +1,7 @@
+<form action="/events" method="post">
+    <input type="text" placeholder="title" name="title">
+    <input type="text" placeholder="details" name="details">
+    <input type="date" name="start_at" value="<%= Date.today %>">
+    <input type="date" name="end_at" value="<%= Date.today %>">
+    <button>Add</button>
+</form>
