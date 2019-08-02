@@ -14,4 +14,8 @@
         <p>Date: <%= @event.start_at %> - <%= @event.end_at %></p>
     <% end %>
     <a href="/events/<%= @event.id %>/edit">Edit</a>
+    <form action="/events/<%= @event.id %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <button>Delete</button>
+    </form>
 </main>

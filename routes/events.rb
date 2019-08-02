@@ -36,3 +36,9 @@ get '/events' do
     event.save
     redirect "/events/#{params[:id]}"
   end
+
+  delete '/events/:id' do
+    event = Event.find(params[:id])
+    event.delete
+    redirect '/events'
+  end
