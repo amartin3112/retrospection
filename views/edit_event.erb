@@ -1,0 +1,8 @@
+<form action="/events/<%= @event.id %>" method="post">
+    <input type="hidden" name="_method" value="put">
+    <input type="text" placeholder="title" name="title" value="<%= @event.title %>">
+    <input type="text" placeholder="details" name="details" value="<%= @event.details %>">
+    <input type="date" name="start_at" value="<%= @event.start_at.to_date %>">
+    <input type="date" name="end_at" value="<%= @event.end_at.to_date %>">
+    <button>Save</button>
+</form>

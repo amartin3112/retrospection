@@ -7,6 +7,11 @@ get '/events' do
     erb :add_event
   end
 
+  get '/events/:id/edit' do
+    @event = Event.find(params[:id])
+    erb :edit_event
+  end
+
   get '/events/:id' do
     @event = Event.find(params[:id])
     erb :show_event
@@ -20,4 +25,14 @@ get '/events' do
     event.end_at = params[:end_at]
     event.save
     redirect '/events'
+  end
+
+  put '/events/:id' do
+    event = Event.find(params[:id])
+    event.title = params[:title]
+    event.details = params[:details]
+    event.start_at = params[:start_at]
+    event.end_at = params[:end_at]
+    event.save
+    redirect "/events/#{params[:id]}"
   end
