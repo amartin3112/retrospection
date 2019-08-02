@@ -21,12 +21,13 @@ get '/photos' do
   erb :photos
 end
 
-get '/photos/:id' do
-  erb :show_photo
-end
-
 get '/photos/add' do
   erb :add_photo
+end
+
+get '/photos/:id' do
+  @photo = Photo.find(params[:id])
+  erb :show_photo
 end
 
 post '/photos' do
@@ -37,4 +38,10 @@ post '/photos' do
   # photo.event_id # optional
   photo.save
   redirect '/photos/add'
+end
+
+delete '/photos/:id' do
+  photo = Photo.find(params[:id])
+  photo.delete
+  redirect '/photos'
 end

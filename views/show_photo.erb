@@ -1,0 +1,17 @@
+<header>
+    <nav>
+        <a href="/photos">
+            <i class="fas fa-chevron-left"> Back</i>
+        </a>
+    </nav>
+</header>
+<main>
+    <p><%= @photo.timestamp %></p>
+    <img src="<%= @photo.image_url %>" alt="">
+</main>
+<footer>
+    <form action="" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <button><i class="far fa-trash-alt"></i></button>
+    </form>
+</footer>
