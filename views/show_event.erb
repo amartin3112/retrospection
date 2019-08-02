@@ -1,0 +1,16 @@
+<header>
+    <nav>
+        <a href="/events">
+            <i class="fas fa-chevron-left"> Back</i>
+        </a>
+    </nav>
+</header>
+<main>
+    <h1><%= @event.title %></h1>
+    <p><%= @event.details %></p>
+    <% if @event.start_at == @event.end_at %>
+        <p>Date: <%= @event.start_at %></p>
+    <% else %>
+        <p>Date: <%= @event.start_at %> - <%= @event.end_at %></p>
+    <% end %>
+</main>

@@ -7,6 +7,11 @@ get '/events' do
     erb :add_event
   end
 
+  get '/events/:id' do
+    @event = Event.find(params[:id])
+    erb :show_event
+  end
+
   post '/events' do
     event = Event.new
     event.title = params[:title]

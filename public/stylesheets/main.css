@@ -5,3 +5,8 @@ img {
 input {
     display: block;
 }
+
+a {
+    color: black;
+    text-decoration: none;
+}
