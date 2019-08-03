@@ -7,9 +7,8 @@
   <script src="https://kit.fontawesome.com/e0410cd50a.js"></script>
 </head>
 <body>
-  <% if session[:user_id] == nil %>
-    <p>logged out</p>
-  <% else %>
+  <% if logged_in? %>
+    <p>Logged in as: <%= current_user.email %></p>
     <form action="/sessions" method="post">
       <input type="hidden" name="_method" value="delete">
       <button>Log out</button>
