@@ -16,7 +16,7 @@ get '/photos' do
     photo = Photo.new
     photo.image_url = params[:image_url]
     photo.timestamp = Time.now # use timestamp from photo
-    photo.user_id = 1 # need to make this dynamic
+    photo.user_id = current_user.id
     # photo.event_id # optional
     photo.save
     redirect '/photos/add'

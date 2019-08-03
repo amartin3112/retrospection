@@ -23,6 +23,7 @@ get '/events' do
     event.details = params[:details]
     event.start_at = params[:start_at]
     event.end_at = params[:end_at]
+    event.user_id = current_user.id
     event.save
     redirect '/events'
   end
