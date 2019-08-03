@@ -10,3 +10,11 @@ a {
     color: black;
     text-decoration: none;
 }
+
+.border-top-bottom {
+    padding-top: 0.2em;
+    border-top: black 1px solid;
+    padding-bottom: 0.2em;
+    border-bottom: black 1px solid;
+    text-align: center;
+}

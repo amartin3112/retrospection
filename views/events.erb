@@ -17,19 +17,21 @@
     </section>
 </header>
 <main>
-    <section>
-        <% @events.each do |event| %>
-            <% if event.start_at == event.end_at %>
-                <p><%= event.start_at %></p>
-            <% else %>
-                <p><%= event.start_at %> - <%= event.end_at %></p>
-            <% end %>
-            <a href="/events/<%= event.id %>">
-                <h2><%= event.title %></h2>
-                <p><%= event.details %></p>
-            </a>
+<% dates = [] %>
+<% @events.each do |event| %>
+    <% if dates.exclude?(event.start_at) %>
+        <% if event.start_at == event.end_at %>
+            <p class="border-top-bottom"><%= event.start_at.strftime("%a, %e %b %Y") %></p>
+        <% else %>
+            <p class="border-top-bottom"><%= event.start_at.strftime("%a, %e %b %Y") %> - <%= event.end_at.strftime("%a, %e %b %Y") %></p>
         <% end %>
-    </section>
+        <% dates << event.start_at %>
+    <% end %>
+    <a href="/events/<%= event.id %>">
+        <h2><%= event.title %></h2>
+        <p><%= event.details %></p>
+    </a>
+<% end %>
 </main>
 <footer>
     <a href="/events">Events</a>

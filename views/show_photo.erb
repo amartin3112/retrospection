@@ -4,7 +4,7 @@
     </nav>
 </header>
 <main>
-    <p><%= @photo.timestamp %></p>
+    <p><%= @photo.timestamp.in_time_zone("Australia/Melbourne").strftime("%A %e %B %Y @ %T") %></p>
     <img src="<%= @photo.image_url %>" alt="">
     <% if @photo.event %>
         <p>This photo is part of the event: <%= @photo.event.title %></p>
