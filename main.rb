@@ -22,6 +22,7 @@ after do
   ActiveRecord::Base.connection.close
 end
 
+
 get '/' do
   erb :index
 end
@@ -29,3 +30,4 @@ end
 require_relative 'routes/events'
 require_relative 'routes/photos'
 require_relative 'routes/sessions'
+require_relative 'routes/users'
