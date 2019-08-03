@@ -1,5 +1,5 @@
 get '/photos' do
-    @photos = Photo.all.order(:timestamp).reverse
+    @photos = Photo.all.where(user_id: current_user).order(:timestamp).reverse
     erb :photos
   end
   

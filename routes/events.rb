@@ -1,5 +1,5 @@
 get '/events' do
-    @events = Event.all.order(:start_at).reverse
+    @events = Event.all.where(user_id: current_user).order(:start_at).reverse
     erb :events
   end
   
