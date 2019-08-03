@@ -7,9 +7,9 @@
     <h1><%= @event.title %></h1>
     <p><%= @event.details %></p>
     <% if @event.start_at == @event.end_at %>
-        <p>Date: <%= @event.start_at %></p>
+        <p>Date: <%= @event.start_at.strftime("%a, %e %b %Y") %></p>
     <% else %>
-        <p>Date: <%= @event.start_at %> - <%= @event.end_at %></p>
+        <p>Date: <%= @event.start_at.strftime("%a, %e %b %Y") %> - <%= @event.end_at.strftime("%a, %e %b %Y") %></p>
     <% end %>
     <a href="/events/<%= @event.id %>/edit">Edit</a>
     <form action="/events/<%= @event.id %>" method="post">
