@@ -9,6 +9,7 @@ get '/photos' do
   
   get '/photos/:id' do
     @photo = Photo.find(params[:id])
+    @events = current_user.events.order(:title)
     erb :show_photo
   end
   
@@ -20,6 +21,13 @@ get '/photos' do
     # photo.event_id # optional
     photo.save
     redirect '/photos/add'
+  end
+
+  put '/photos/:id' do
+    photo = Photo.find(params[:id])
+    photo.event_id = params[:event_id].to_i
+    photo.save
+    redirect "/photos/#{photo.id}"
   end
   
   delete '/photos/:id' do

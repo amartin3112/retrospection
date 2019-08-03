@@ -8,6 +8,25 @@
 <main>
     <p><%= @photo.timestamp %></p>
     <img src="<%= @photo.image_url %>" alt="">
+    <% if @photo.event %>
+        <p>This photo is part of the event: <%= @photo.event.title %></p>
+        <form action="/photos/<%= @photo.id %>" method="post">
+            <input type="hidden" name="_method" value="put">
+            <input type="hidden" name="input_id" value="nil">
+            <button>Remove</button>
+        </form>
+    <% else %>
+        <p>Add to an event:</p>
+        <form action="/photos/<%= @photo.id %>" method="post">
+            <input type="hidden" name="_method" value="put">
+            <select name="event_id">
+                <% @events.each do |event| %>
+                    <option value="<%= event.id %>"><%= event.title %></option>
+                <% end %>
+            </select>
+            <button>Add</button>
+        </form>
+    <% end %>
 </main>
 <footer>
     <form action="" method="post">
