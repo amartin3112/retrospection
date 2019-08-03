@@ -1,0 +1,15 @@
+<header>
+    <h1>Your account</h1>
+</header>
+<main>
+    <h2>Edit details</h2>
+    <form action="/users/<%= current_user.id %>" method="post">
+        <input type="hidden" name="_method" value="put">
+        <input type="text" placeholder="First name" name="first_name" value="<%= current_user.first_name %>">
+        <input type="text" placeholder="Last name" name="last_name" value="<%= current_user.last_name %>">
+        <input type="email" 
+        placeholder="Email" name="email" value="<%= current_user.email %>">
+        <button>Update details</button>
+    </form>
+    <a href="/users/<%= current_user.id %>/edit_password">Change password</a>
+</main>
