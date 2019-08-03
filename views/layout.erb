@@ -7,6 +7,14 @@
   <script src="https://kit.fontawesome.com/e0410cd50a.js"></script>
 </head>
 <body>
+  <% if session[:user_id] == nil %>
+    <p>logged out</p>
+  <% else %>
+    <form action="/sessions" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button>Log out</button>
+    </form>
+  <% end %>
 
   <%= yield %>
 

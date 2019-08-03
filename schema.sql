@@ -17,7 +17,8 @@ CREATE TABLE events (
     start_at TIMESTAMPTZ,
     end_at TIMESTAMPTZ,
     created_at TIMESTAMPTZ,
-    updated_at TIMESTAMPTZ
+    updated_at TIMESTAMPTZ,
+    user_id INTEGER
 );
 
 CREATE TABLE photos (

@@ -7,9 +7,19 @@ require_relative 'models/user'
 require_relative 'models/event'
 require_relative 'models/photo'
 
+enable :sessions
+
+helpers do
+end
+
+after do
+  ActiveRecord::Base.connection.close
+end
+
 get '/' do
   erb :index
 end
 
 require_relative 'routes/events'
 require_relative 'routes/photos'
+require_relative 'routes/sessions'
