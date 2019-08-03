@@ -1,5 +1,6 @@
 get '/events' do
     @events = Event.all.where(user_id: current_user).order(:start_at).reverse
+    binding.pry
     erb :events
   end
   
