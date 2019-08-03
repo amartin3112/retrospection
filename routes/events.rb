@@ -1,6 +1,5 @@
 get '/events' do
-    @events = Event.all.where(user_id: current_user).order(:start_at).reverse
-    binding.pry
+    @events = current_user.events.order(:start_at).reverse
     erb :events
   end
   
@@ -15,6 +14,7 @@ get '/events' do
 
   get '/events/:id' do
     @event = Event.find(params[:id])
+    @photos = @event.photos
     erb :show_event
   end
 
