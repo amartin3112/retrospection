@@ -22,7 +22,6 @@ after do
   ActiveRecord::Base.connection.close
 end
 
-
 get '/' do
   erb :index
 end
