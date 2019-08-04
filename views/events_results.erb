@@ -1,23 +1,12 @@
 <header>
     <nav class="main-nav">
-        <a href="/photos"><img src="https://i.imgur.com/4KYrctE.png"></a> 
+        <a href="/events"><img src="https://i.imgur.com/FZzaEan.png"></a> 
         <p class="lobster">Retrospection</p>
         <a href="/users/<%= current_user.id %>/edit"><img src="https://i.imgur.com/WlaSrJA.png"></a>       
     </nav>
 </header>
 <main>
-    <section class="add">
-        <a href="/events/add">
-            <img src="https://i.imgur.com/FZzaEan.png">
-            <p class="bold">Add event</p>
-        </a>
-    </section>
-    <section>
-        <form class="search" action="/events/results">
-            <input type="text" placeholder="Search events">
-            <button>Go!</button>
-        </form>
-    </section>
+    <h2>Search results</h2>
     <section class="list">
     <% dates = [] %>
     <% @events.each do |event| %>
