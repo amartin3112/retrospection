@@ -5,33 +5,35 @@
         <a href="/users/<%= current_user.id %>/edit"><img src="https://i.imgur.com/WlaSrJA.png"></a>       
     </nav>
 </header>
-<main>
+<main class="show-photo">
     <h2>Photo details</h2>
     <p><%= @photo.timestamp.in_time_zone("Australia/Melbourne").strftime("%A %e %B %Y @ %T") %></p>
     <img src="<%= @photo.image_url %>" alt="">
     <% if @photo.event %>
-        <p>This photo is part of the event: <%= @photo.event.title %></p>
-        <form action="/photos/<%= @photo.id %>" method="post">
+        <p class="center">This photo is part of the event: </p>
+        <p class="center"><%= @photo.event.title %></p>
+        <form class="center" action="/photos/<%= @photo.id %>" method="post">
             <input type="hidden" name="_method" value="put">
             <input type="hidden" name="input_id" value="nil">
             <button>Remove</button>
         </form>
     <% else %>
-        <p>Add to an event:</p>
-        <form action="/photos/<%= @photo.id %>" method="post">
+        <p class="center">Add to an event:</p>
+        <form class="center" action="/photos/<%= @photo.id %>" method="post">
             <input type="hidden" name="_method" value="put">
             <select name="event_id">
                 <% @events.each do |event| %>
-                    <option value="<%= event.id %>"><%= event.title %></option>
+                    <option value="<%= event.id %>"><%= event.title.truncate(48, separator: ' ') %></option>
                 <% end %>
             </select>
             <button>Add</button>
         </form>
     <% end %>
+
 </main>
 <footer>
-    <form action="" method="post">
+    <form action="/photos/<%= @photo.id %>" method="post">
         <input type="hidden" name="_method" value="delete">
-        <button>Delete photo</button>
+        <button class="delete">Delete photo</button>
     </form>
 </footer>

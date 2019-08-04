@@ -61,16 +61,29 @@ button {
     background-color: var(--sec-color); 
 }
 
+select {
+    font-size: 1rem;
+    border: var(--pri-color) 1px solid;
+}
+
+option {
+    padding: 0.2em;
+}
+
 .border-top-bottom {
     padding-top: 0.3em;
-    border-top: var(--pri-color) 2px solid;
+    border-top: var(--sec-color) 2px solid;
     padding-bottom: 0.3em;
-    border-bottom: var(--pri-color) 1px solid;
+    border-bottom: var(--sec-color) 1px solid;
     text-align: center;
 }
 
 .bold {
     font-weight: bold;
+}
+
+.center {
+    text-align: center;
 }
 
 .lobster {
@@ -80,7 +93,7 @@ button {
 .main-nav {
     display: flex;
     justify-content: space-between;
-    border-bottom: var(--pri-color) 2px solid;
+    border-bottom: var(--sec-color) 2px solid;
 }
 
 .main-nav img {
@@ -116,4 +129,19 @@ button {
 
 .list p {
     margin: 0.5em 0;
+}
+
+.show-photo {
+    text-align: left;
+    margin: 0.5em;
+}
+
+.show-photo p {
+    margin: 0.5em 0;
+}
+
+.delete {
+    width: 80%;
+    background-color: var(--ter-color);
+    margin-top: 3em;
 }

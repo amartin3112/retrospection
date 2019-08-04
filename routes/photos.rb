@@ -20,7 +20,7 @@ get '/photos' do
     photo.user_id = current_user.id
     # photo.event_id # optional
     photo.save
-    redirect '/photos/add'
+    redirect '/photos'
   end
 
   put '/photos/:id' do
