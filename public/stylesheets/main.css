@@ -21,6 +21,7 @@ h1 {
 }
 
 h2 {
+    margin-top: 1em;
     font-size: 1.5rem;
     font-weight: 400;
 }
@@ -42,6 +43,20 @@ img {
 input {
     display: block;
     width: 80%;
+    margin: 0.5em auto;
+    font-size: 1rem;
+    padding: 0.2em;
+    color: var(--pri-color);
+    border: var(--pri-color) solid 1px;
+    border-radius: 0.3em;
+    background-color: var(--bg-color);
+    -webkit-appearance: none;
+}
+
+textarea {
+    display: block;
+    width: 80%;
+    height: 100px;
     margin: 0.5em auto;
     font-size: 1rem;
     padding: 0.2em;
@@ -84,6 +99,12 @@ option {
 
 .center {
     text-align: center;
+}
+
+.left {
+    text-align: left;
+    margin-left: 8px;
+    margin-right: 8px;
 }
 
 .lobster {
@@ -141,7 +162,22 @@ option {
 }
 
 .delete {
-    width: 80%;
+    width: 35%;
     background-color: var(--ter-color);
-    margin-top: 3em;
+    margin-top: 1em;
+}
+
+.edit, .save, .remove {
+    width: 35%;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.2em;
+    border: var(--pri-color) solid 1px;
+    border-radius: 0.3em;
+    background-color: var(--sec-color);
+    margin-top: 0.5em;
+}
+
+.new-event {
+    width: 80%;
 }

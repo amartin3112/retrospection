@@ -15,7 +15,7 @@
         <form class="center" action="/photos/<%= @photo.id %>" method="post">
             <input type="hidden" name="_method" value="put">
             <input type="hidden" name="input_id" value="nil">
-            <button>Remove</button>
+            <button class="remove">Remove</button>
         </form>
     <% else %>
         <p class="center">Add to an event:</p>

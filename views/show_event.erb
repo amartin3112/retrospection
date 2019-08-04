@@ -1,26 +1,26 @@
 <header>
     <nav class="main-nav">
-        <a href="/photos"><img src="https://i.imgur.com/4KYrctE.png"></a> 
+        <a href="/events"><img src="https://i.imgur.com/FZzaEan.png"></a> 
         <p class="lobster">Retrospection</p>
         <a href="/users/<%= current_user.id %>/edit"><img src="https://i.imgur.com/WlaSrJA.png"></a>       
     </nav>
 </header>
-<main class="list">
-    <h2><%= @event.title %></h2>
-    <p><%= @event.details %></p>
+<main>
+    <h2 class="left"><%= @event.title %></h2>
+    <p class="left"><%= @event.details %></p>
     <% if @event.start_at == @event.end_at %>
-        <p>Date: <%= @event.start_at.strftime("%a, %e %b %Y") %></p>
+        <p class="left bold">Date: <%= @event.start_at.strftime("%a, %e %b %Y") %></p>
     <% else %>
-        <p>Date: <%= @event.start_at.strftime("%a, %e %b %Y") %> - <%= @event.end_at.strftime("%a, %e %b %Y") %></p>
+        <p class="left bold">Date: <%= @event.start_at.strftime("%a, %e %b %Y") %> - <%= @event.end_at.strftime("%a, %e %b %Y") %></p>
     <% end %>
-    <a href="/events/<%= @event.id %>/edit">Edit</a>
-    <form action="/events/<%= @event.id %>" method="post">
-        <input type="hidden" name="_method" value="delete">
-        <button>Delete</button>
-    </form>
+    <a class="edit" href="/events/<%= @event.id %>/edit">Edit</a>
     <% @photos.each do |photo| %>
         <a href="/photos/<%= photo.id %>">
             <img src="<%= photo.image_url %>" alt="">
         </a>
     <% end %>
+    <form action="/events/<%= @event.id %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <button class="delete">Delete</button>
+    </form>
 </main>

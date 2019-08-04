@@ -3,7 +3,7 @@
     font-size: 4rem;
 }
 
-h2 {
+.user h2 {
     margin: 5vh auto 0.5em auto;
 }
 
@@ -24,5 +24,6 @@ h2 {
 }
 
 .logout button {
+    width: 35%;
     background-color: var(--ter-color);
 }
