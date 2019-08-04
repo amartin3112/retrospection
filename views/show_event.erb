@@ -13,7 +13,10 @@
         <input type="hidden" name="_method" value="delete">
         <button>Delete</button>
     </form>
+
     <% @photos.each do |photo| %>
-        <img src="<%= photo.image_url %>" alt="">
+        <a href="/photos/<%= photo.id %>">
+            <img src="<%= photo.image_url %>" alt="">
+        </a>
     <% end %>
 </main>
