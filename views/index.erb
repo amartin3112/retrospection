@@ -1,13 +1,17 @@
-<header>
-    <h1>Welcome to Retrospection</h1>
-</header>
-<main>
-    <h2>Please sign in</h2>
-    <form action="/sessions" method="post">
-        <input type="email" placeholder="Email" name="email">
-        <input type="password" placeholder="Password" name="password">
-        <button>Sign in</button>
-    </form>
-    <p>Not a member yet?</p>
-    <a href="/users">Create an account</a>
-</main>
+<div class="user">
+    <header>
+        <h1>Retrospection</h1>
+    </header>
+    <main>
+        <h2>Please sign in</h2>
+        <form action="/sessions" method="post">
+            <input type="email" placeholder="Email" name="email">
+            <input type="password" placeholder="Password" name="password">
+            <button>Sign in</button>
+        </form>
+        <section class="create-account">
+            <p>Not a member yet?</p>
+            <a class="bold" href="/users">Create an account</a>
+        </section>
+    </main>
+</div>
