@@ -7,26 +7,28 @@
         <p class="lobster">Retrospection</p>
         <a href="/users/<%= current_user.id %>/edit"><img src="https://i.imgur.com/WlaSrJA.png"></a>
     </nav>
-    <h1>Photos</h1>
-    <section>
-        <a href="/photos/add">Add photo</a>
+</header>
+<main>
+    <section class="add">
+        <a href="/photos/add">
+            <img src="https://i.imgur.com/4KYrctE.png">
+            <p>Add photo</p>
+        </a>
     </section>
     <section>
-        <form action="">
+        <form class="search" action="">
             <input type="text" placeholder="Search photos">
             <button>Go!</button>
         </form>
     </section>
-</header>
-<main>
-<% dates = [] %>
-<% @photos.each do |photo| %>
-    <% if dates.exclude?(photo.timestamp.in_time_zone("Australia/Melbourne").strftime("%D")) %>
-        <p class="border-top-bottom"><%= photo.timestamp.in_time_zone("Australia/Melbourne").strftime("%a, %e %b %Y") %></p>
-        <% dates << photo.timestamp.in_time_zone("Australia/Melbourne").strftime("%D") %>
+    <section class="list">
+    <% dates = [] %>
+    <% @photos.each do |photo| %>
+        <% if dates.exclude?(photo.timestamp.in_time_zone("Australia/Melbourne").strftime("%D")) %>
+            <p class="border-top-bottom"><%= photo.timestamp.in_time_zone("Australia/Melbourne").strftime("%a, %e %b %Y") %></p>
+            <% dates << photo.timestamp.in_time_zone("Australia/Melbourne").strftime("%D") %>
+        <% end %>
+        <a href="/photos/<%= photo.id %>"><img src="<%= photo.image_url %>" alt=""></a>
     <% end %>
-    <a href="/photos/<%= photo.id %>"><img src="<%= photo.image_url %>" alt=""></a>
-<% end %>
+    </section>
 </main>
-<footer>
-</footer>

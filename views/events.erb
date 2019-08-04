@@ -3,37 +3,40 @@
 <% end %>
 <header>
     <nav class="main-nav">
-        <a href="/photos"><img src="https://i.imgur.com/wPDxoyR.png"></a> 
+        <a href="/photos"><img src="https://i.imgur.com/4KYrctE.png"></a> 
         <p class="lobster">Retrospection</p>
         <a href="/users/<%= current_user.id %>/edit"><img src="https://i.imgur.com/WlaSrJA.png"></a>       
     </nav>
-    <h1>Events</h1>
-    <section>
-        <a href="/events/add">Add event</a>
+</header>
+<main>
+    <section class="add">
+        <a href="/events/add">
+            <img src="https://i.imgur.com/FZzaEan.png">
+            <p>Add event</p>
+        </a>
     </section>
     <section>
-        <form action="">
+        <form class="search" action="">
             <input type="text" placeholder="Search events">
             <button>Go!</button>
         </form>
     </section>
-</header>
-<main>
-<% dates = [] %>
-<% @events.each do |event| %>
-    <% if dates.exclude?(event.start_at) %>
-        <% if event.start_at == event.end_at %>
-            <p class="border-top-bottom"><%= event.start_at.strftime("%a, %e %b %Y") %></p>
-        <% else %>
-            <p class="border-top-bottom"><%= event.start_at.strftime("%a, %e %b %Y") %> - <%= event.end_at.strftime("%a, %e %b %Y") %></p>
+    <section class="list">
+    <% dates = [] %>
+    <% @events.each do |event| %>
+        <% if dates.exclude?(event.start_at) %>
+            <% if event.start_at == event.end_at %>
+                <p class="border-top-bottom"><%= event.start_at.strftime("%a, %e %b %Y") %></p>
+            <% else %>
+                <p class="border-top-bottom"><%= event.start_at.strftime("%a, %e %b %Y") %> - <%= event.end_at.strftime("%a, %e %b %Y") %></p>
+            <% end %>
+            <% dates << event.start_at %>
         <% end %>
-        <% dates << event.start_at %>
+        <a href="/events/<%= event.id %>">
+            <h2><%= event.title %></h2>
+            <p><%= event.details %></p>
+        </a>
     <% end %>
-    <a href="/events/<%= event.id %>">
-        <h2><%= event.title %></h2>
-        <p><%= event.details %></p>
-    </a>
-<% end %>
+    </section>
 </main>
-<footer>
-</footer>
+</div>
