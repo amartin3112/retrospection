@@ -1,9 +1,11 @@
-<header>
 <% if !logged_in? %>
     <a href="/">Log in</a>
 <% end %>
-    <nav>
-        <a href="/users/<%= current_user.id %>/edit">Edit account</a>
+<header>
+    <nav class="main-nav">
+        <a href="/events"><img src="https://i.imgur.com/FZzaEan.png"></a>
+        <p class="lobster">Retrospection</p>
+        <a href="/users/<%= current_user.id %>/edit"><img src="https://i.imgur.com/WlaSrJA.png"></a>
     </nav>
     <h1>Photos</h1>
     <section>
@@ -27,6 +29,4 @@
 <% end %>
 </main>
 <footer>
-    <a href="/events">Events</a>
-    <a href="/photos">Photos</a>
 </footer>

@@ -1,7 +1,12 @@
 <header>
-    <h1>Add a new photo</h1>
+    <nav class="main-nav">
+        <a href="/events"><img src="https://i.imgur.com/FZzaEan.png"></a>
+        <p class="lobster">Retrospection</p>
+        <a href="/users/<%= current_user.id %>/edit"><img src="https://i.imgur.com/WlaSrJA.png"></a>
+    </nav>
 </header>
 <main>
+    <h2>Add a new photo</h2>
     <form action="/photos" method="post">
         <label for="">Photo link:</label>
         <input type="text" name="image_url">

@@ -1,11 +1,29 @@
-@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
-
 .user h1 {
-    margin: 10vh auto 0.8em auto;
+    margin: 5vh auto 0.5em auto;
     font-family: 'Lobster', cursive;
     font-size: 4rem;
 }
 
-.user .create-account {
+h2 {
+    margin: 5vh auto 0.5em auto;
+}
+
+.user button {
+    width: 80%;
+}
+
+.user a {
+    text-decoration: underline;
+}
+
+.user .additional-details {
     margin-top: 1.5em;
+}
+
+.logout {
+    margin-top: 3em;
+}
+
+.logout button {
+    background-color: var(--ter-color);
 }
