@@ -8,6 +8,7 @@
     </header>
     <main>
         <h2>Edit details</h2>
+        <p class="successful"><%= @successful %></p>
         <form action="/users/<%= current_user.id %>" method="post">
             <input type="hidden" name="_method" value="put">
             <input type="text" placeholder="First name" name="first_name" value="<%= current_user.first_name %>">

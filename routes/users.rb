@@ -30,12 +30,18 @@ put '/users/:id/password' do
         user.password = params[:password]
         if user.valid?
             user.save
-            redirect "/users/#{user.id}/edit"
+            @successful = "Your password was successfully updated"
+            erb :edit_user
+            # redirect "/users/#{user.id}/edit"
         else
-            redirect "/users/#{user.id}/edit_password"
+            @invalid_password = "Your new password must be at least 8 characters"
+            erb :edit_password
+            # redirect "/users/#{user.id}/edit_password"
         end
     else
-        redirect "/users/#{user.id}/edit_password"
+        @invalid_password = "The current password you provided was incorrect"
+        erb :edit_password
+        # redirect "/users/#{user.id}/edit_password"
     end
 end
 

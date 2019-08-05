@@ -185,3 +185,7 @@ option {
 .invalid {
     color: var(--ter-color);
 }
+
+.successful {
+    color: var(--sec-color);
+}
