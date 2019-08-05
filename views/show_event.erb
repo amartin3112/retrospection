@@ -20,9 +20,20 @@
         </a>
     <% end %>
     <button class="delete" id="delete-event">Delete</button>
-    <form class="hide" id="delete-form" action="/events/<%= @event.id %>" method="post">
+    <form class="hide" id="delete-event-form" action="/events/<%= @event.id %>" method="post">
         <input type="hidden" name="_method" value="delete">
         <label class="warning" for="">Are you sure? This action cannot be reversed.</label>
         <button class="delete">Yes</button>
     </form>
 </main>
+
+<script>
+    var deleteEvent = document.getElementById('delete-event');
+    var deleteEventForm = document.getElementById('delete-event-form');
+
+    var unhideEventForm = function() {
+        deleteEventForm.classList.remove('hide');
+    };
+
+    deleteEvent.addEventListener('click', unhideEventForm);
+</script>

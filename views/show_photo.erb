@@ -32,8 +32,21 @@
 
 </main>
 <footer>
-    <form action="/photos/<%= @photo.id %>" method="post">
+    <button class="delete" id="delete-photo">Delete</button>
+    <form class="hide" id="delete-photo-form" action="/photos/<%= @photo.id %>" method="post">
         <input type="hidden" name="_method" value="delete">
-        <button class="delete">Delete photo</button>
+        <label class="warning" for="">Are you sure? This action cannot be reversed.</label>
+        <button class="delete">Yes</button>
     </form>
 </footer>
+
+<script>
+    var deletePhoto = document.getElementById('delete-photo');
+    var deletePhotoForm = document.getElementById('delete-photo-form');
+
+    var unhidePhotoForm = function() {
+        deletePhotoForm.classList.remove('hide');
+    };
+
+    deletePhoto.addEventListener('click', unhidePhotoForm);
+</script>
