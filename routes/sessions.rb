@@ -4,6 +4,7 @@ post '/sessions' do
         session[:user_id] = user.id
         redirect "/events"
     else
+        @message = "Invalid email or password"
         erb :index
     end
 end

@@ -4,6 +4,7 @@
     </header>
     <main>
         <h2>Please sign in</h2>
+        <p class="invalid"><%= @message %></p>
         <form action="/sessions" method="post">
             <input type="email" placeholder="Email" name="email">
             <input type="password" placeholder="Password" name="password">

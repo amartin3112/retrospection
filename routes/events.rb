@@ -1,4 +1,5 @@
 get '/events' do
+  current_user
   @events = current_user.events.order(:start_at).reverse
   erb :events
 end

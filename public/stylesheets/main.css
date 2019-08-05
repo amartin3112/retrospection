@@ -181,3 +181,7 @@ option {
 .new-event {
     width: 80%;
 }
+
+.invalid {
+    color: var(--ter-color);
+}

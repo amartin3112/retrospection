@@ -16,16 +16,24 @@ post '/users' do
     user.last_name = params[:last_name]
     user.email = params[:email]
     user.password = params[:password]
-    user.save
-    redirect '/'
+    if user.valid?
+        user.save
+        redirect '/'
+    else
+        redirect '/users'
+    end
 end
 
 put '/users/:id/password' do
     user = User.find(params[:id])
     if user.authenticate(params[:current_password])
         user.password = params[:password]
-        user.save
-        redirect "/users/#{user.id}/edit"
+        if user.valid?
+            user.save
+            redirect "/users/#{user.id}/edit"
+        else
+            redirect "/users/#{user.id}/edit_password"
+        end
     else
         redirect "/users/#{user.id}/edit_password"
     end
