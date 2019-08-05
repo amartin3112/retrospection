@@ -31,8 +31,13 @@ post '/events' do
   event.start_at = params[:start_at]
   event.end_at = params[:end_at]
   event.user_id = current_user.id
-  event.save
-  redirect '/events'
+  if event.valid?
+    event.save
+    redirect '/events'
+  else
+    @no_title = "You must provide a title"
+    erb :add_event
+  end
 end
 
 put '/events/:id' do

@@ -29,7 +29,7 @@
             <% end %>
             <% dates << event.start_at %>
         <% end %>
-        <a href="/events/<%= event.id %>">
+        <a class="event" href="/events/<%= event.id %>">
             <h2><%= event.title %></h2>
             <p><%= event.details %></p>
         </a>

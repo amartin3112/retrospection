@@ -7,6 +7,7 @@
 </header>
 <main>
     <h2>Add a new event</h2>
+    <p class="warning"><%= @no_title %></p>
     <form action="/events" method="post">
         <input type="text" placeholder="Title" name="title">
         <textarea name="details" placeholder="Details" name="details"></textarea>
