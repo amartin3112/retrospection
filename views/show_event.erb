@@ -19,8 +19,10 @@
             <img src="<%= photo.image_url %>" alt="">
         </a>
     <% end %>
-    <form action="/events/<%= @event.id %>" method="post">
+    <button class="delete" id="delete-event">Delete</button>
+    <form class="hide" id="delete-form" action="/events/<%= @event.id %>" method="post">
         <input type="hidden" name="_method" value="delete">
-        <button class="delete">Delete</button>
+        <label class="warning" for="">Are you sure? This action cannot be reversed.</label>
+        <button class="delete">Yes</button>
     </form>
 </main>
