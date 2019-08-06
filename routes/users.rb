@@ -1,12 +1,15 @@
 get '/users' do
+    @messages = []
     erb :add_user
 end
 
 get '/users/:id/edit' do
+    @messages = []
     erb :edit_user
 end
 
 get '/users/:id/edit_password' do
+    @messages = []
     erb :edit_password
 end
 
@@ -16,11 +19,11 @@ post '/users' do
     user.last_name = params[:last_name]
     user.email = params[:email]
     user.password = params[:password]
-    if user.valid?
-        user.save
+    if user.save
         redirect '/'
     else
-        redirect '/users'
+        @messages = user.errors.full_messages
+        erb :add_user
     end
 end
 
@@ -28,20 +31,17 @@ put '/users/:id/password' do
     user = User.find(params[:id])
     if user.authenticate(params[:current_password])
         user.password = params[:password]
-        if user.valid?
-            user.save
+        if user.save
+            @messages = []
             @successful = "Your password was successfully updated"
             erb :edit_user
-            # redirect "/users/#{user.id}/edit"
         else
-            @invalid_password = "Your new password must be at least 8 characters"
+            @messages = user.errors.full_messages
             erb :edit_password
-            # redirect "/users/#{user.id}/edit_password"
         end
     else
-        @invalid_password = "The current password you provided was incorrect"
+        @messages = ["Current password is incorrect password"]
         erb :edit_password
-        # redirect "/users/#{user.id}/edit_password"
     end
 end
 
@@ -50,6 +50,16 @@ put '/users/:id' do
     user.first_name = params[:first_name]
     user.last_name = params[:last_name]
     user.email = params[:email]
-    user.save
-    redirect '/events'
+    if user.authenticate(params[:password])
+        user.password = params[:password]
+        if user.save
+            redirect '/events'
+        else
+            @messages = user.errors.full_messages
+            erb :edit_user
+        end
+    else
+        @messages = ["Incorrect password"]
+        erb :edit_user
+    end
 end
