@@ -40,7 +40,7 @@ put '/users/:id/password' do
             erb :edit_password
         end
     else
-        @messages = ["Current password is incorrect password"]
+        @messages = ["Current password is incorrect"]
         erb :edit_password
     end
 end
@@ -53,7 +53,9 @@ put '/users/:id' do
     if user.authenticate(params[:password])
         user.password = params[:password]
         if user.save
-            redirect '/events'
+            @messages = []
+            @successful = "Your details were successfully updated"
+            erb :edit_user
         else
             @messages = user.errors.full_messages
             erb :edit_user
