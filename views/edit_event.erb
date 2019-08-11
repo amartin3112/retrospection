@@ -7,6 +7,9 @@
 </header>
 <main>
     <h2>Edit event details</h2>
+    <% @messages.each do |message| %>
+        <p class="warning"><%= message %></p>
+    <% end %>
     <form action="/events/<%= @event.id %>" method="post">
         <input type="hidden" name="_method" value="put">
         <input type="text" placeholder="Title" name="title" value="<%= @event.title %>">

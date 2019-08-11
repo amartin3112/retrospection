@@ -7,14 +7,16 @@
 </header>
 <main>
     <h2>Add a new event</h2>
-    <p class="warning"><%= @no_title %></p>
+    <% @messages.each do |message| %>
+        <p class="warning"><%= message %></p>
+    <% end %>
     <form action="/events" method="post">
-        <input type="text" placeholder="Title" name="title">
-        <textarea name="details" placeholder="Details" name="details"></textarea>
+        <input type="text" placeholder="Title" name="title" value="<%= @event.title %>">
+        <textarea placeholder="Details" name="details"><%= @event.details %></textarea>
         <label class="left">Start date</label>
-        <input type="date" name="start_at" value="<%= Date.today %>">
+        <input type="date" name="start_at" value="<%= @event.start_at.to_date %>">
         <label>End date</label>
-        <input type="date" name="end_at" value="<%= Date.today %>">
+        <input type="date" name="end_at" value="<%= @event.end_at.to_date %>">
         <button class="new-event">Add</button>
     </form>
 </main>

@@ -1,6 +1,6 @@
-require 'pry' # if development?
+require 'pry'
 require 'sinatra'
-require 'sinatra/reloader' # if development?
+require 'sinatra/reloader' if development?
 require_relative 'database_config'
 
 require_relative 'models/user'
