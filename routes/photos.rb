@@ -4,6 +4,7 @@ get '/photos' do
   end
   
   get '/photos/add' do
+    @messages = []
     erb :add_photo
   end
   
@@ -19,8 +20,12 @@ get '/photos' do
     photo.timestamp = Time.now # use timestamp from photo
     photo.user_id = current_user.id
     # photo.event_id # optional
-    photo.save
-    redirect '/photos'
+    if photo.save
+      redirect '/photos'
+    else
+      @messages = photo.errors.full_messages
+      erb :add_photo
+    end
   end
 
   put '/photos/:id' do

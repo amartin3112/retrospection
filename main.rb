@@ -1,6 +1,9 @@
 require 'pry'
 require 'sinatra'
 require 'sinatra/reloader' if development?
+also_reload File.expand_path(__dir__, + 'models/*') if development?
+also_reload File.expand_path(__dir__, + 'views/*') if development?
+also_reload File.expand_path(__dir__, + 'routes/*') if development?
 require_relative 'database_config'
 
 require_relative 'models/user'

@@ -7,6 +7,9 @@
 </header>
 <main>
     <h2>Add a new photo</h2>
+    <% @messages.each do |message| %>
+        <p class="warning"><%= message %></p>
+    <% end %>
     <form action="/photos" method="post">
         <input type="text" name="image_url" placeholder="Image link">
         <button>Add</button>
