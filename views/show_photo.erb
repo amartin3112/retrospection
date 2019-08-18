@@ -5,6 +5,7 @@
         <a href="/users/<%= current_user.id %>/edit"><img src="https://i.imgur.com/WlaSrJA.png"></a>       
     </nav>
 </header>
+
 <main class="show-photo">
     <h2>Photo details</h2>
     <p><%= @photo.timestamp.in_time_zone("Australia/Melbourne").strftime("%A %e %B %Y @ %T") %></p>
@@ -14,7 +15,7 @@
         <p class="center"><%= @photo.event.title %></p>
         <form class="center" action="/photos/<%= @photo.id %>" method="post">
             <input type="hidden" name="_method" value="put">
-            <input type="hidden" name="input_id" value="nil">
+            <input type="hidden" name="event_id" value="nil">
             <button class="remove">Remove</button>
         </form>
     <% else %>
@@ -29,8 +30,8 @@
             <button>Add</button>
         </form>
     <% end %>
-
 </main>
+
 <footer>
     <button class="delete" id="delete-photo">Delete</button>
     <form class="hide" id="delete-photo-form" action="/photos/<%= @photo.id %>" method="post">
