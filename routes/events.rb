@@ -72,6 +72,10 @@ end
 
 delete '/events/:id' do
   event = Event.find(params[:id])
-  event.delete
+  event.photos.each do |photo|
+    photo.event_id = nil
+    photo.save
+  end
+  event.destroy
   redirect '/events'
 end

@@ -1,6 +1,7 @@
 require_relative 'database_config'
 require_relative 'models/user'
 require_relative 'models/event'
+require_relative 'models/photo'
 
 
 # create a couple of users
@@ -9,14 +10,14 @@ user = User.new
 user.first_name = "Ashley"
 user.last_name = "Martin"
 user.email = "am@ga.co"
-user.password = ""
+user.password = "" # add password before running
 user.save
 
 user = User.new
 user.first_name = "D"
 user.last_name = "T"
 user.email = "dt@ga.co"
-user.password = ""
+user.password = "" # add password before running
 user.save
 
 
@@ -80,7 +81,7 @@ photo = Photo.new
 photo.image_url = "https://i.imgur.com/vE64RCu.jpg"
 photo.timestamp = "2019-08-01"
 photo.user_id = 1
-photo.event_id = 55
+photo.event_id = 3
 photo.save
 
 # another photo on "3 - same day 1/2"
@@ -88,7 +89,7 @@ photo = Photo.new
 photo.image_url = "https://i.imgur.com/NgAlhok.jpg"
 photo.timestamp = "2019-08-01"
 photo.user_id = 1
-photo.event_id = 55
+photo.event_id = 3
 photo.save
 
 # not associated with an event
@@ -103,7 +104,7 @@ photo = Photo.new
 photo.image_url = "https://i.imgur.com/GqRzs0E.jpg"
 photo.timestamp = "2019-07-29"
 photo.user_id = 2
-photo.event_id = 58
+photo.event_id = 6
 photo.save
 
 # owned by someone else and not associated to an event

@@ -30,13 +30,17 @@ end
 
 put '/photos/:id' do
   photo = Photo.find(params[:id])
-  photo.event_id = params[:event_id].to_i
+  if params[:event_id] == 'nil'
+    photo.event_id = nil
+  else
+    photo.event_id = params[:event_id].to_i
+  end
   photo.save
   redirect "/photos/#{photo.id}"
 end
 
 delete '/photos/:id' do
   photo = Photo.find(params[:id])
-  photo.delete
+  photo.destroy
   redirect '/photos'
 end

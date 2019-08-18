@@ -18,7 +18,8 @@ CREATE TABLE events (
     end_at TIMESTAMPTZ,
     created_at TIMESTAMPTZ,
     updated_at TIMESTAMPTZ,
-    user_id INTEGER
+    user_id INTEGER,
+    FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE RESTRICT
 );
 
 CREATE TABLE photos (
@@ -28,5 +29,7 @@ CREATE TABLE photos (
     created_at TIMESTAMPTZ,
     updated_at TIMESTAMPTZ,
     user_id INTEGER,
-    event_id INTEGER
+    event_id INTEGER,
+    FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE RESTRICT,
+    FOREIGN KEY (event_id) REFERENCES events (id) ON DELETE RESTRICT
 );
