@@ -23,10 +23,8 @@ helpers do
 end
 
 before do
-  if request.path != '/'
-    if !logged_in? && request.path != '/sessions'
-      redirect '/'
-    end
+  if request.path == '/events' || request.path == '/photos'
+    redirect '/' if !logged_in?
   end
 end
 
