@@ -22,6 +22,14 @@ helpers do
   end
 end
 
+before do
+  if request.path != '/'
+    if !logged_in? && request.path != '/sessions'
+      redirect '/'
+    end
+  end
+end
+
 after do
   ActiveRecord::Base.connection.close
 end
