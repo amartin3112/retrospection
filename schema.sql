@@ -33,3 +33,5 @@ CREATE TABLE photos (
     FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE RESTRICT,
     FOREIGN KEY (event_id) REFERENCES events (id) ON DELETE RESTRICT
 );
+
+ALTER TABLE photos ADD asset TEXT;

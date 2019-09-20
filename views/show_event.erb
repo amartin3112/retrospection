@@ -16,7 +16,7 @@
     <a class="edit" href="/events/<%= @event.id %>/edit">Edit</a>
     <% @photos.each do |photo| %>
         <a href="/photos/<%= photo.id %>">
-            <img src="<%= photo.image_url %>" alt="">
+            <img src="<%= photo.asset %>" alt="">
         </a>
     <% end %>
     <button class="delete" id="delete-event">Delete</button>

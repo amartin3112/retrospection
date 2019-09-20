@@ -28,7 +28,7 @@
             <p class="border-top-bottom bold"><%= photo.timestamp.in_time_zone("Australia/Melbourne").strftime("%a, %e %b %Y") %></p>
             <% dates << photo.timestamp.in_time_zone("Australia/Melbourne").strftime("%D") %>
         <% end %>
-        <a href="/photos/<%= photo.id %>"><img src="<%= photo.image_url %>" alt=""></a>
+        <a href="/photos/<%= photo.id %>"><img src="<%= photo.asset %>" alt=""></a>
     <% end %>
     </section>
 </main>

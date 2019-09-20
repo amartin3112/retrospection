@@ -9,7 +9,7 @@
 <main class="show-photo">
     <h2>Photo details</h2>
     <p><%= @photo.timestamp.in_time_zone("Australia/Melbourne").strftime("%A %e %B %Y @ %T") %></p>
-    <img src="<%= @photo.image_url %>" alt="">
+    <img src="<%= @photo.asset %>" alt="">
     <% if @photo.event %>
         <p class="center">This photo is part of the event: </p>
         <p class="center"><%= @photo.event.title %></p>

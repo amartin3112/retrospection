@@ -10,11 +10,12 @@
     <% @messages.each do |message| %>
         <p class="warning"><%= message %></p>
     <% end %>
-    <form action="/photos" method="post">
+    <%# <form action="/photos" method="post">
         <input type="text" name="image_url" placeholder="Image link">
         <button>Add</button>
-    </form>
-    <form action="">
-        <input type="file">
+    </form> %>
+    <form action="/photos" method="post" enctype="multipart/form-data">
+        <input type="file" name="asset" />
+        <button>Add</button>
     </form>
 </main>

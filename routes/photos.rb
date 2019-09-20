@@ -16,7 +16,8 @@ end
 
 post '/photos' do
   photo = Photo.new
-  photo.image_url = params[:image_url]
+  photo.asset = params[:asset]
+  # photo.image_url = params[:image_url]
   photo.timestamp = Time.now # use timestamp from photo
   photo.user_id = current_user.id
   # photo.event_id # optional
